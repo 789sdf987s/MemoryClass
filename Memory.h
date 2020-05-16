@@ -1,7 +1,7 @@
  #pragma once
 
 #include <Windows.h>
-#include <vector>ss
+#include <vector>
 
 class cMemory {
 public:
