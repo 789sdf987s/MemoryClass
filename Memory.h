@@ -1,7 +1,7 @@
  #pragma once
 
 #include <Windows.h>
-#include <vector>
+#include <vector>ss
 
 class cMemory {
 public:
@@ -26,7 +26,6 @@ public:
 
 	uintptr_t FindModule(const char*);
 	uintptr_t GetModuleBaseAddress(const char*);
-	uintptr_t FindDMAAddy(uintptr_t, std::vector<unsigned int>);
 
 	DWORD ProcessID;
 	HANDLE ProcessHandle;

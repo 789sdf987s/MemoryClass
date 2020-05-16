@@ -50,12 +50,12 @@ DWORD cMemory::FindProcess(const char* ProcessName) {
 	return ProcessID;
 }
 
-DWORD cMemory::FindAddress(DWORD Address, std::vector<DWORD> Vector) {
-	for (unsigned int i = 0; i < Vector.size(); i++) {
-		ReadProcessMemory(ProcessHandle, (BYTE*)Address, &Address, sizeof(Address), 0);
-		Address += Vector[i];
+DWORD cMemory::FindAddress(DWORD Pointer, std::vector<DWORD> Offsets) {
+	for (unsigned int i = 0; i < Offsets.size(); i++) {
+		Pointer = ReadMemory<DWORD>(Pointer);
+		Pointer += Offsets[i];
 	}
-	return Address;
+	return Pointer;
 }
 
 uintptr_t cMemory::GetModuleBaseAddress(const char* ModuleName) {
@@ -88,15 +88,4 @@ uintptr_t cMemory::FindModule(const char* ModuleName) {
 		}
 	} while (Module32Next(Module, &ModuleEntry));
 	return 0;
-}
-
-uintptr_t cMemory::FindDMAAddy(uintptr_t Pointer, std::vector<unsigned int> Offsets) {
-	uintptr_t Address = Pointer;
-
-	for (unsigned int i = 0; i < Offsets.size(); ++i) {
-		Address = ReadMemory<uintptr_t>(Address);
-		Address += Offsets[i];
-	}
-
-	return Address;
 }
