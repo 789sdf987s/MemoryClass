@@ -7,6 +7,9 @@
 # Usage
  Put Memory.h and Memory.cpp in your C++ project and create a instance (ex. cMemory Memory). Then you can use FindProcess() to find process that you want to work with (ex. FindProcess("csgo.exe")). This will automaticly open handle to the process and get its ID (Memory.ProcessHandle and Memory.ProcessID). Read and write memory functions will automaticly read from handle that you opened with FindProcess().
  
+# Examples
+ You can see example of using this class in my simple ETS2 cheat: [Truckware](https://github.com/YanderewareDev/Truckware).
+ 
 # License 
  > Copyright (c) 2020 Nexo
 
